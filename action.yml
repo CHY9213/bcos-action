@@ -1,0 +1,27 @@
+name: 'BCOS v2 Scan Action'
+description: 'Run BCOS v2 (Beacon Certified Open Source) scans on any repository'
+author: 'CHY9213'
+branding:
+  icon: 'shield'
+  color: 'blue'
+inputs:
+  tier:
+    description: 'BCOS tier to scan for (L0/L1/L2)'
+    required: true
+  reviewer:
+    description: 'Reviewer identifier'
+    required: true
+  node-url:
+    description: 'RustChain node URL'
+    required: false
+    default: 'https://50.28.86.131'
+outputs:
+  trust_score:
+    description: 'BCOS trust score'
+  cert_id:
+    description: 'Certificate ID'
+  tier_met:
+    description: 'Whether the tier requirements are met (true/false)'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
